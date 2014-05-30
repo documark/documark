@@ -1,0 +1,28 @@
+{
+  "name": "documark",
+  "version": "0.1.0",
+  "description": "PDF generator for scripted documents.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mauvm/documark.git"
+  },
+  "keywords": [
+    "PDF",
+    "generator",
+    "script",
+    "document",
+    "writing",
+    "markdown",
+    "jade"
+  ],
+  "author": "Maurits van Mastrigt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mauvm/documark/issues"
+  },
+  "homepage": "https://github.com/mauvm/documark"
+}
