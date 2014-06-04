@@ -1,1 +1,3 @@
-module.exports = require( 'lib/documark' );
+/* jslint node: true */
+
+module.exports = require( './lib/documark' );
