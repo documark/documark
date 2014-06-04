@@ -26,6 +26,7 @@
   "dependencies": {
     "chalk": "^0.4.0",
     "commander": "^2.2.0",
+    "documark-parser-jade": "^0.1.0",
     "duplexer": "^0.1.1",
     "front-matter": "^0.2.0",
     "glob": "^4.0.2",
