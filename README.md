@@ -15,7 +15,34 @@ Note: This is still a work in progress!
 
 1. For now manually installing [wkhtmltopdf](http://wkhtmltopdf.org/downloads.html) is still required.
 
-## Templating (draft)
+## Configuration
+
+Document configuration can be done in two ways:
+
+1. In the document's [front matter](https://github.com/jxson/front-matter#example);
+2. In a seperate `config.json`.
+
+If there is front matter in the document, the configuration file will be ignored.
+
+### wkhtmltopdf
+
+Configure wkhtmltopdf with the `pdf` object in the documents front matter. For example:
+
+```yaml
+---
+title: Document
+pdf:
+  user-style-sheet: path/to/main.css
+---
+```
+
+See [http://wkhtmltopdf.org/usage/wkhtmltopdf.txt](http://wkhtmltopdf.org/usage/wkhtmltopdf.txt) for a full list of configuration options.
+
+## Scripts
+
+Use inline scripts or the `--run-script <js>` option.
+
+## Templates (draft)
 
 Self-installable templates via `npm install documark-tpl-<name> -g`. And custom templates via `~/.config/documark/<name>/`.
 
