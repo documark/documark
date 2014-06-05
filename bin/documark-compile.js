@@ -7,6 +7,7 @@
 var program = require( 'commander' );
 
 program
+	.option( '-v, --verbose', 'increase verbosity', function( v, total ) { return total + 1; }, 0 )
 	.option( '-w, --watch', 'automatically recompile on file change' )
 	.parse( process.argv )
 	;
@@ -15,6 +16,8 @@ var basePath = program.args.length ? program.args[ program.args.length - 1 ] : '
 var Documark = require( '../lib/documark' );
 var doc      = new Documark( basePath );
 var chalk    = require( 'chalk' );
+
+doc.setVerbosity( program.verbose );
 
 function compile() {
 	process.stdout.write( 'Compiling.. ' );
@@ -25,7 +28,7 @@ function compile() {
 	}
 	catch( e ) {
 		console.log( chalk.red( 'Error!' ) );
-		console.log( e );
+		console.error( e );
 	}
 }
 
