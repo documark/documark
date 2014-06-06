@@ -9,6 +9,7 @@ var program = require( 'commander' );
 program
 	.option( '-v, --verbose', 'increase verbosity', function( v, total ) { return total + 1; }, 0 )
 	.option( '-w, --watch', 'automatically recompile on file change' )
+	.option( '-t, --throttle [milliseconds]', 'throttle recompile watcher', 1000 )
 	.parse( process.argv )
 	;
 
@@ -35,11 +36,12 @@ function compile() {
 compile();
 
 if( program.watch ) {
-	var monocle = require( 'monocle' )();
+	var monocle  = require( 'monocle' )();
+	var throttle = require( 'throttleit' );
 
 	monocle.watchDirectory( {
 		root: doc.getPath(),
 		fileFilter: [ '!**/*.pdf' ],
-		listener: compile
+		listener: throttle( compile, program.throttle )
 	} );
 }

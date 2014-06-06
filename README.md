@@ -52,6 +52,7 @@ Self-installable templates via `npm install documark-tpl-<name> -g`. And custom 
 - [x] Watch option for auto-recompiling
 - [x] Stylesheet support
 - [x] Script support
+- [x] Throttle compile watcher
 - [ ] Template support and `init` command
 - [ ] Header/footer support
 - [ ] Footnote/source generation

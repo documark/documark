@@ -31,6 +31,7 @@
     "front-matter": "^0.2.0",
     "glob": "^4.0.2",
     "monocle": "^1.1.51",
+    "throttleit": "0.0.2",
     "through": "^2.3.4",
     "yamljs": "^0.1.5"
   },
