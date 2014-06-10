@@ -1,5 +1,6 @@
 # To Do
 
-- Fix loading local image
+- Allow relative (image) paths
+- Fix missing left margin in link and inline code blocks
 - Style table
 - Structure text

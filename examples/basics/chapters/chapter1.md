@@ -25,7 +25,7 @@ Want to link to a source? No problem. If you paste in url, like http://google.nl
 
 Images work too! Already know the URL of the image you want to include in your article? Simply paste it in like this to make it show up:
 
-![Image Example](/assets/img/example.jpg)
+![Image Example](/code/documark/dev/examples/basics/assets/img/example.jpg)
 
 Not sure which image you want to use yet? That's ok too. Leave yourself a descriptive placeholder and keep writing. Come back later and drag and drop the image in to upload.
 
