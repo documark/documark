@@ -21,11 +21,10 @@ var chalk    = require( 'chalk' );
 doc.setVerbosity( program.verbose );
 
 function compile() {
-	process.stdout.write( 'Compiling.. ' );
+	console.log( chalk.bold( 'Compiling..' ) );
 	try {
 		doc.load();
 		doc.compile();
-		console.log( chalk.green( 'Done.' ) );
 	}
 	catch( e ) {
 		console.log( chalk.red( 'Error!' ) );
