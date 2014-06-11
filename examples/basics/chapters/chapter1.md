@@ -1,10 +1,10 @@
 # Welcome to Documark
 
-You're in! Nice. We've put together a little post to introduce you to the Ghost editor and get you started. Go ahead and edit this post to get going and learn how it all works!
+You're in! Nice. We've put together a little example document to introduce you to Documark and get you started. Go ahead and edit this document to get going and learn how it all works!
 
 ## Getting Started
 
-Writing in markdown is really easy. In the left hand panel of Ghost, you simply write as you normally would. Where appropriate, you can use <em>formatting</em> shortcuts to style your content. For example, a list:
+Writing in markdown is really easy. Where appropriate, you can use _formatting_ shortcuts to style __your content__. For example, a list:
 
 - Item number one
 - Item number two
@@ -19,17 +19,15 @@ or with numbers!
 
 ### Links
 
-Want to link to a source? No problem. If you paste in url, like http://google.nl - it'll automatically be linked up. But if you want to customise your anchor text, you can do that too! Here's a link to [Google.nl](http://google.nl). Neat.
+Want to link to a source? No problem. If you paste in url, like http://google.nl - it'll automatically be linked up. But if you want to customize your anchor text, you can do that too! Here's a link to [Google.nl](http://google.nl). Neat.
 
-### What about Images?
+### What about images?
 
-Images work too! Already know the URL of the image you want to include in your article? Simply paste it in like this to make it show up:
+Images work too! You can add them like this:
 
-![Image Example](/code/documark/dev/examples/basics/assets/img/example.jpg)
+![Image Example](/assets/img/Markdown.png)
 
-Not sure which image you want to use yet? That's ok too. Leave yourself a descriptive placeholder and keep writing. Come back later and drag and drop the image in to upload.
-
-External images work too!
+External images? No problem!
 
 ![Placeholder](http://placehold.it/350x150)
 
@@ -39,9 +37,11 @@ Throw 3 or more dashes down on any new line and you've got yourself a fancy new 
 
 ---
 
-Or a forced page break? No problem.
+Or maybe a forced page break?
 
 <div style="page-break-after:always"></div>
+
+Done.
 
 ### Quoting
 
@@ -53,7 +53,7 @@ Sometimes a link isn't enough, you want to quote someone on what they've said. I
 
 ### Working with Code
 
-Got a streak of geek? We've got you covered there, too. You can write inline `<code>` blocks really easily with back ticks. Want to show off something more comprehensive? 4 spaces or a tab of indentation gets you there.
+Got a streak of geek? We've got you covered there, too. You can write inline `<code>` blocks really easily with back ticks. Want to show off something more comprehensive? 4 spaces or a tab of indentation get you there:
 
     .awesome-thing {
         display: block;
@@ -62,7 +62,7 @@ Got a streak of geek? We've got you covered there, too. You can write inline `<c
 
 ### Advanced Usage
 
-There's one fantastic secret about Markdown. If you want, you can  write plain old HTML and it'll still work! Very flexible.
+There's one fantastic secret about Markdown. If you want, you can write plain old HTML and it'll still work! Very flexible.
 
 <table>
     <thead>
