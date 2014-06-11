@@ -54,11 +54,11 @@ Self-installable templates via `npm install documark-tpl-<name> -g`. And custom 
 - [x] Script support
 - [x] Throttle compile watcher
 - [x] Add basic example
-- [ ] Add automatic installation of dependencies
-- [ ] Template support and `init` command
+- [x] Manual page breaks
 - [ ] Header/footer support
 - [ ] Footnote/source generation
 - [ ] Table of contents
-- [ ] Manual page breaks
+- [ ] Template support and `init` command
+- [ ] Automatically install dependencies
 - [ ] Automatically install requested plugins
 - [ ] Make Sublime Text build system
