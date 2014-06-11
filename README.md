@@ -62,3 +62,4 @@ Self-installable templates via `npm install documark-tpl-<name> -g`. And custom 
 - [ ] Automatically install dependencies
 - [ ] Automatically install requested plugins
 - [ ] Make Sublime Text build system
+- [ ] Improve error handling (proper error on missing -parser- package)
