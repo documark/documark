@@ -14,7 +14,7 @@ program
 	;
 
 var basePath = program.args.length ? program.args[ program.args.length - 1 ] : '.';
-var Documark = require( '../lib/documark' );
+var Documark = require( '../lib/Documark' );
 var doc      = new Documark( basePath );
 var chalk    = require( 'chalk' );
 
@@ -23,7 +23,6 @@ doc.setVerbosity( program.verbose );
 function compile() {
 	console.log( chalk.bold( 'Compiling..' ) );
 	try {
-		doc.load();
 		doc.compile();
 	}
 	catch( e ) {

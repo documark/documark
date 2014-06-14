@@ -12,7 +12,7 @@ program
 	;
 
 var basePath = program.args.length ? program.args[ program.args.length - 1 ] : '.';
-var Documark = require( '../lib/documark' );
+var Documark = require( '../lib/Documark' );
 var doc      = new Documark( basePath );
 var YAML     = require( 'yamljs' );
 
