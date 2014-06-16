@@ -13,6 +13,6 @@ program
 	.parse( process.argv )
 	;
 
-if( ! program.args.length ) {
+if( ! program.runningCommand ) {
 	program.help();
 }
