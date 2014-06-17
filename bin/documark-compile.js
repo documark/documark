@@ -15,19 +15,36 @@ program
 
 var basePath = program.args.length ? program.args[ program.args.length - 1 ] : '.';
 var Documark = require( '../lib/Documark' );
-var doc      = new Documark( basePath );
+var document = new Documark( basePath );
 var chalk    = require( 'chalk' );
 
-doc.setVerbosity( program.verbose );
+document.verbosity( program.verbose );
 
-function compile() {
-	console.log( chalk.bold( 'Compiling..' ) );
+var start, stop;
+
+function done() {
+	stop = new Date();
+
+	console.log( chalk.cyan( 'Completed in ' + ( ( stop.getTime() - start.getTime() ) / 1000 ).toFixed( 3 ) + 's at ' + stop ) + ( program.watch ? ' - Waiting..' : '' ) );
+}
+function error( e ) {
+	console.log( chalk.red( 'Error!' ) );
+	throw e;
+}
+function compile( changedFile ) {
+	start = new Date();
+
+	if( changedFile ) {
+		console.log( '\n' + chalk.green( '>>' ) + ' File "' + changedFile.fullPath.substr( document.path().length + 1 ) + '" changed.\n' );
+	}
+
+	console.log( chalk.underline( 'Compiling..' ) );
+
 	try {
-		doc.compile();
+		document.compile( done );
 	}
 	catch( e ) {
-		console.log( chalk.red( 'Error!' ) );
-		console.error( e );
+		error( e );
 	}
 }
 
@@ -38,7 +55,7 @@ if( program.watch ) {
 	var throttle = require( 'throttleit' );
 
 	monocle.watchDirectory( {
-		root: doc.getPath(),
+		root: document.path(),
 		fileFilter: [ '!**/*.pdf' ],
 		listener: throttle( compile, program.throttle )
 	} );
