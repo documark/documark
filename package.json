@@ -28,7 +28,7 @@
     "chalk": "^0.4.0",
     "cheerio": "^0.17.0",
     "commander": "^2.2.0",
-    "documark-hr-to-page-break": "^0.1.2",
+    "documark-plugin-hr-to-page-break": "^0.1.2",
     "documark-parser-jade": "^0.1.2",
     "event-stream": "^3.1.5",
     "eventemitter2": "^0.4.13",
