@@ -2,7 +2,7 @@
   "name": "documark",
   "version": "0.1.4",
   "description": "PDF generator for scripted documents.",
-  "main": "index.js",
+  "main": "./lib/Documark.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
