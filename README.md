@@ -45,21 +45,3 @@ Use inline scripts or the `--run-script <js>` option.
 ## Templates (draft)
 
 Self-installable templates via `npm install documark-tpl-<name> -g`. And custom templates via `~/.config/documark/<name>/`.
-
-## Roadmap / features
-
-- [x] Compile to PDF
-- [x] Watch option for auto-recompiling
-- [x] Stylesheet support
-- [x] Script support
-- [x] Throttle compile watcher
-- [x] Add basic example
-- [x] Manual page breaks
-- [ ] Header/footer support
-- [ ] Footnote/source generation
-- [ ] Table of contents
-- [ ] Template support and `init` command
-- [ ] Automatically install dependencies
-- [ ] Automatically install requested plugins
-- [ ] Make Sublime Text build system
-- [ ] Improve error handling (proper error on missing -parser- package)
