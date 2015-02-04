@@ -4,15 +4,16 @@
 
 'use strict';
 
-var program = require( 'commander' );
+var program = require('commander');
 
 program
-	.version( require( '../package.json' ).version )
-	.command( 'config', 'output document configuration' )
-	.command( 'compile', 'compile document to PDF' )
-	.parse( process.argv )
+	.version(require('../package.json').version)
+	.command('config', 'output document configuration')
+	.command('compile', 'compile document to PDF')
+	.parse(process.argv)
 	;
 
-if( ! program.runningCommand ) {
+if ( ! program.runningCommand) {
 	program.help();
 }
+

@@ -4,16 +4,17 @@
 
 'use strict';
 
-var program = require( 'commander' );
+var program = require('commander');
 
 program
 	// ..
-	.parse( process.argv )
+	.parse(process.argv)
 	;
 
-var basePath = program.args.length ? program.args[ program.args.length - 1 ] : '.';
-var Documark = require( '../lib/Documark' );
-var doc      = new Documark( basePath );
-var YAML     = require( 'yamljs' );
+var basePath = (program.args.length ? program.args[program.args.length - 1] : '.');
+var Documark = require('../lib/Documark');
+var document = new Documark(basePath);
+var YAML     = require('yamljs');
 
-console.log( YAML.stringify( doc.getConfig() ) );
+console.log(JSON.stringify(document.config()));
+

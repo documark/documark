@@ -4,12 +4,12 @@ PDF generator for scripted documents.
 
 A library that:
 
-1. Compiles scripted document files (html, jade, markdown, css, js) into a PDF;
-2. Allow usage of templates (`documark init` to pick template and configure it);
+1. Compiles scripted document files (Jade, Markdown, and assets) into a PDF;
+<!-- 2. Allow usage of templates (`documark init` to pick template and configure it); -->
 3. Is used as a command-line interface (`npm install documark -g`, `documark compile`);
 4. Can watch for files changes (`documark compile --watch`) to recompile the document.
 
-Note: This is still a work in progress!
+__Note: This is still a work in progress!__
 
 ## Dependencies
 
@@ -36,8 +36,9 @@ pdf:
 ---
 ```
 
-See [http://wkhtmltopdf.org/usage/wkhtmltopdf.txt](http://wkhtmltopdf.org/usage/wkhtmltopdf.txt) for a full list of configuration options.
+See [this page][wkhtmltopdf-options] for a full list of configuration options.
 
+<!--
 ## Scripts
 
 Use inline scripts or the `--run-script <js>` option.
@@ -45,3 +46,7 @@ Use inline scripts or the `--run-script <js>` option.
 ## Templates (draft)
 
 Self-installable templates via `npm install documark-tpl-<name> -g`. And custom templates via `~/.config/documark/<name>/`.
+-->
+
+[wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
+
