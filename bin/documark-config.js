@@ -17,4 +17,3 @@ var document = new Documark(basePath);
 var YAML     = require('yamljs');
 
 console.log(JSON.stringify(document.config()));
-

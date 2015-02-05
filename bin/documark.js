@@ -16,4 +16,3 @@ program
 if ( ! program.runningCommand) {
 	program.help();
 }
-
