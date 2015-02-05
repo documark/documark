@@ -38,15 +38,5 @@ pdf:
 
 See [this page][wkhtmltopdf-options] for a full list of configuration options.
 
-<!--
-## Scripts
-
-Use inline scripts or the `--run-script <js>` option.
-
-## Templates (draft)
-
-Self-installable templates via `npm install documark-tpl-<name> -g`. And custom templates via `~/.config/documark/<name>/`.
--->
-
 [wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
 
