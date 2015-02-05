@@ -68,7 +68,7 @@ if (program.watch) {
 
 	monocle.watchDirectory({
 		root: document.path(),
-		fileFilter: ['!**/*.pdf'],
+		fileFilter: ['**/*.{jade,md,markdown,mdown,js,css,png,jpg,jpeg,gif,bmp}'],
 		listener: throttle(compile, program.throttle)
 	});
 }
