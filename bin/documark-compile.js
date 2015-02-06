@@ -53,12 +53,14 @@ function compile (changedFile) {
 	console.log(chalk.underline('Compiling..'));
 
 	try {
-		document.compile(done);
+		document.compile();
 	}
 	catch (e) {
 		error(e);
 	}
 }
+
+document.on('post-compile', done);
 
 compile();
 
