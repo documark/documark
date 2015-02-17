@@ -5,7 +5,7 @@
 A library that:
 
 1. Compiles scripted document files (Jade, Markdown, and assets) into a PDF;
-2. Is used as a command-line interface (`npm install documark -g`, `documark compile`);
+2. Is used as a command-line interface (`npm install -g documark-cli`, `documark compile`);
 3. Can watch for files changes (`documark compile --watch`) to recompile the document.
 
 ## Why?
