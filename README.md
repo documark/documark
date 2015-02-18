@@ -5,8 +5,8 @@
 A library that:
 
 1. Compiles scripted document files (Jade, Markdown, and assets) into a PDF;
-2. Is used as a command-line interface (`npm install -g documark-cli`, `documark compile`);
-3. Can watch for files changes (`documark compile --watch`) to recompile the document.
+2. Is used as a command line interface ([`documark install -g documark-cli`][documark-cli]);
+3. Can watch for files changes to recompile the document (`documark compile --watch`).
 
 ## Why?
 
@@ -22,7 +22,7 @@ My personally hatret towards WYSIWYG word processors sparked me to write this to
 
 ## Example
 
-Go to the [Documark example][documark-example] repository for a generated PDF and its sourcecode.
+Go to the [Documark example][documark-example] repository for a generated PDF and its source code.
 
 ## Dependencies
 
@@ -61,10 +61,12 @@ pdf:
 ---
 ```
 
-See [this page][wkhtmltopdf-options] for a full list of configuration options.
+Note that [node-wkhtmltopdf][node-wkhtmltopdf] is used as an intermediate package, which uses camel cased (`userStyleSheet`) options instead of dashed ones (`user-style-sheet`, like in the command line tool). See [this page][wkhtmltopdf-options] for a full list of configuration options.
 
+[documark-cli]: https://github.com/mauvm/documark-cli
 [documark-example]: https://github.com/mauvm/documark-example
 [wkhtmltopdf-install]: http://wkhtmltopdf.org/downloads.html
 [cheeriojs]: https://github.com/cheeriojs/cheerio
 [front-matter]: https://github.com/jxson/front-matter#example
+[node-wkhtmltopdf]: https://www.npmjs.com/package/wkhtmltopdf
 [wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
