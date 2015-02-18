@@ -1,6 +1,6 @@
 # Documark
 
-#### PDF generator for scripted documents.
+> PDF generator for scripted documents.
 
 A library that:
 
