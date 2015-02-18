@@ -64,7 +64,9 @@ plugins:
 
 __Tip:__ Use the [documark plugin loader][documark-plugin-loader] to load custom plugins!
 
-__Writing your own plugins is easy!__ Here's a boilerplate for a plugin named `dmp-my-custom-plugin` (`dmp-` is short for Documark plugin):
+#### Writing your own plugins is easy!
+
+Here's a boilerplate for a plugin named `dmp-my-custom-plugin` (`dmp-` is short for Documark plugin):
 
 ```js
 // Require modules outside the plugin function
@@ -83,7 +85,7 @@ module.exports = function dmpMyCustomPlugin ($, document, cb) {
 };
 ```
 
-Don't forget to load the plugin in your `document.jade` file!
+Don't forget to load the plugin!
 
 ### WkHTMLToPDF
 
