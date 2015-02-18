@@ -5,19 +5,19 @@
 A library that:
 
 1. Compiles scripted document files (Jade, Markdown, and assets) into a PDF;
-2. Is used as a command line interface ([`documark install -g documark-cli`][documark-cli]);
+2. Is used as a command line interface ([`npm install -g documark-cli`][documark-cli]);
 3. Can watch for files changes to recompile the document (`documark compile --watch`).
 
 ## Why?
 
 My personally hatret towards WYSIWYG word processors sparked me to write this tool. LaTeX felt like a waste of time, so instead I figured: why not use Markdown? I like Documark because it:
 
-1. Separates content and styling
-2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing/styling the document
-3. Enforces a consistent document style (no dragging around table columns and floating images)
-4. Allows version control with Git or SVN
-5. Simplifies collaboration (by splitting up the document in separate files)
-6. Allows you to use your favorite text editor - like Vim ❤
+1. Separates content and styling;
+2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing/styling the document;
+3. Enforces a consistent document style (no dragging around table columns and floating images);
+4. Allows version control with Git or SVN;
+5. Simplifies collaboration (by splitting up the document in separate files);
+6. Allows you to use your favorite text editor - like Vim ❤ ;
 7. Makes automating things (through plugins) real easy!
 
 ## Example
@@ -49,6 +49,42 @@ Document configuration can be done in two ways:
 
 If there is front matter in the document, the configuration file will be ignored.
 
+### Plugins
+
+Add plugins via the `plugins` key in the `document.jade` front matter:
+
+```yaml
+---
+title: Document
+plugins:
+  - documark-plugin-loader
+  - documark-hr-to-page-break
+---
+```
+
+__Tip:__ Use the [documark plugin loader][documark-plugin-loader] to load custom plugins!
+
+__Writing your own plugins is easy!__ Here's a boilerplate for a plugin named `dmp-my-custom-plugin` (`dmp-` is short for Documark plugin):
+
+```js
+// Require modules outside the plugin function
+var path = require('path');
+
+// Add camel cased plugin name to function (for debugging)
+module.exports = function dmpMyCustomPlugin ($, document, cb) {
+	// Manipulate the DOM tree
+	$('my-custom-element').replaceWith('<p>Hello world!</p>');
+
+	// Or alter the configuration
+	document.options().pdf.marginLeft = '5cm';
+
+	// Don't forget to let Documark know the plugin is done!
+	cb();
+};
+```
+
+Don't forget to load the plugin in your `document.jade` file!
+
 ### WkHTMLToPDF
 
 Configure WkHTMLToPDF with the `pdf` object in the documents front matter. For example:
@@ -68,5 +104,6 @@ Note that [node-wkhtmltopdf][node-wkhtmltopdf] is used as an intermediate packag
 [wkhtmltopdf-install]: http://wkhtmltopdf.org/downloads.html
 [cheeriojs]: https://github.com/cheeriojs/cheerio
 [front-matter]: https://github.com/jxson/front-matter#example
+[documark-plugin-loader]: https://www.npmjs.com/package/documark-plugin-loader
 [node-wkhtmltopdf]: https://www.npmjs.com/package/wkhtmltopdf
 [wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt

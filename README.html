@@ -1,0 +1,84 @@
+<h1 id="documark">Documark</h1>
+<blockquote>
+<p>PDF generator for scripted documents.</p>
+</blockquote>
+<p>A library that:</p>
+<ol>
+<li>Compiles scripted document files (Jade, Markdown, and assets) into a PDF;</li>
+<li>Is used as a command line interface (<a href="https://github.com/mauvm/documark-cli"><code>npm install -g documark-cli</code></a>);</li>
+<li>Can watch for files changes to recompile the document (<code>documark compile --watch</code>).</li>
+</ol>
+<h2 id="why-">Why?</h2>
+<p>My personally hatret towards WYSIWYG word processors sparked me to write this tool. LaTeX felt like a waste of time, so instead I figured: why not use Markdown? I like Documark because it:</p>
+<ol>
+<li>Separates content and styling;</li>
+<li>Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing/styling the document;</li>
+<li>Enforces a consistent document style (no dragging around table columns and floating images);</li>
+<li>Allows version control with Git or SVN;</li>
+<li>Simplifies collaboration (by splitting up the document in separate files);</li>
+<li>Allows you to use your favorite text editor - like Vim ❤ ;</li>
+<li>Makes automating things (through plugins) real easy!</li>
+</ol>
+<h2 id="example">Example</h2>
+<p>Go to the <a href="https://github.com/mauvm/documark-example">Documark example</a> repository for a generated PDF and its source code.</p>
+<h2 id="dependencies">Dependencies</h2>
+<ol>
+<li>Currently manually installing <a href="http://wkhtmltopdf.org/downloads.html">WkHTMLToPDF</a> is still required.</li>
+</ol>
+<h2 id="build-process">Build process</h2>
+<p>These are the steps for compiling the PDF document:</p>
+<ol>
+<li>Input files (Jade, Markdown, and assets)</li>
+<li>Generate HTML</li>
+<li>Convert to DOM tree (with <a href="https://github.com/cheeriojs/cheerio">CheerioJS</a>)</li>
+<li>Process plugins (which can alter the DOM and PDF configuration)</li>
+<li>Emit <code>pre-compile</code> event</li>
+<li>Generate PDF</li>
+<li>Emit <code>post-compile</code> event</li>
+</ol>
+<h2 id="configuration">Configuration</h2>
+<p>Document configuration can be done in two ways:</p>
+<ol>
+<li>In the document&#39;s <a href="https://github.com/jxson/front-matter#example">front matter</a>;</li>
+<li>In a separate <code>config.json</code> file.</li>
+</ol>
+<p>If there is front matter in the document, the configuration file will be ignored.</p>
+<h3 id="plugins">Plugins</h3>
+<p>Add plugins via the <code>plugins</code> key in the <code>document.jade</code> front matter:</p>
+<pre><code class="lang-yaml">---
+title: Document
+plugins:
+  - documark-plugin-loader
+  - documark-hr-to-page-break
+---
+</code></pre>
+<p><strong>Tip:</strong> Use the <a href="https://www.npmjs.com/package/documark-plugin-loader">documark plugin loader</a> to load custom plugins!</p>
+<p><strong>Writing your own plugins is easy!</strong> Here&#39;s a boilerplate for a plugin named <code>dmp-my-custom-plugin</code>:</p>
+<pre><code class="lang-js">// Require modules outside the plugin function
+var path = require(&#39;path&#39;);
+
+// Add camel cased plugin name to function (for debugging).
+module.exports = function dmpMyCustomPlugin ($, document, cb) {
+    // Manipulate the DOM tree
+    $(&#39;my-custom-element&#39;).replaceWith(&#39;&lt;p&gt;Hello world!&lt;/p&gt;&#39;);
+
+    // Or alter the configuration
+    document.options().pdf.marginLeft = &#39;5cm&#39;;
+
+    // Don&#39;t forget to let Documark know the plugin is done!
+    cb();
+};
+</code></pre>
+<p>Don&#39;t forget to load the plugin in your <code>document.jade</code> file!</p>
+<p><strong>Note:</strong> <code>dmp-</code> is short for <code>documark plugin</code>.</p>
+<p><strong>Tip:</strong> When using the <a href="https://www.npmjs.com/package/documark-plugin-loader">Documark plugin loader</a> you can add the code to <code>./plugins/dmp-my-custom-plugin.js</code> in your document directory and load it in your <code>document.jade</code> with <code>import dmp-my-custom-plugin</code> (in the body, not the front matter).</p>
+<h3 id="wkhtmltopdf">WkHTMLToPDF</h3>
+<p>Configure WkHTMLToPDF with the <code>pdf</code> object in the documents front matter. For example:</p>
+<pre><code class="lang-yaml">---
+title: Document
+pdf:
+  userStyleSheet: path/to/main.css
+---
+</code></pre>
+<p>Note that <a href="https://www.npmjs.com/package/wkhtmltopdf">node-wkhtmltopdf</a> is used as an intermediate package, which uses camel cased (<code>userStyleSheet</code>) options instead of dashed ones (<code>user-style-sheet</code>, like in the command line tool). See <a href="http://wkhtmltopdf.org/usage/wkhtmltopdf.txt">this page</a> for a full list of configuration options.</p>
+
