@@ -26,7 +26,7 @@ Go to the [Documark example][documark-example] repository for a generated PDF an
 
 ## Dependencies
 
-1. Currently manually installing [WkHTMLToPDF][wkhtmltopdf-install] is still required.
+1. Currently manually installing [wkhtmltopodf v0.12.2.1+][wkhtmltopdf-install] is still required.
 
 ## Build process
 
@@ -87,9 +87,9 @@ module.exports = function dmpMyCustomPlugin ($, document, cb) {
 
 Don't forget to load the plugin!
 
-### WkHTMLToPDF
+### wkhtmltopdf
 
-Configure WkHTMLToPDF with the `pdf` object in the documents front matter. For example:
+Configure wkhtmltopdf with the `pdf` object in the documents front matter. For example:
 
 ```yaml
 ---
