@@ -73,7 +73,7 @@ Here's a boilerplate for a plugin named `dmp-my-custom-plugin` (`dmp-` is short 
 var path = require('path');
 
 // Add camel cased plugin name to function (for debugging)
-module.exports = function dmpMyCustomPlugin ($, document, cb) {
+module.exports = function dmpMyCustomPlugin ($, document, done) {
 	// Manipulate the DOM tree
 	$('my-custom-element').replaceWith('<p>Hello world!</p>');
 
@@ -81,7 +81,7 @@ module.exports = function dmpMyCustomPlugin ($, document, cb) {
 	document.options().pdf.marginLeft = '5cm';
 
 	// Don't forget to let Documark know the plugin is done!
-	cb();
+	done();
 };
 ```
 
@@ -101,6 +101,13 @@ pdf:
 
 Note that [node-wkhtmltopdf][node-wkhtmltopdf] is used as an intermediate package, which uses camel cased (`userStyleSheet`) options instead of dashed ones (`user-style-sheet`, like in the command line tool). See [this page][wkhtmltopdf-options] for a full list of configuration options.
 
+## Roadmap
+
+- [ ] Move [documark CLI][documark-cli] commands to this repository
+- [ ] Use [wkhtmltopdf downloader][wkhtmltopdf-downloader] so manual installation is no longer required
+- [ ] Create [Yeoman generator][yeoman-generator] for easy document setup: `yo documark-theme-default`
+- [ ] Write wiki pages (any help is welcome)!
+
 [documark-cli]: https://github.com/mauvm/documark-cli
 [documark-example]: https://github.com/mauvm/documark-example
 [wkhtmltopdf-install]: http://wkhtmltopdf.org/downloads.html
@@ -109,3 +116,5 @@ Note that [node-wkhtmltopdf][node-wkhtmltopdf] is used as an intermediate packag
 [documark-plugin-loader]: https://www.npmjs.com/package/documark-plugin-loader
 [node-wkhtmltopdf]: https://www.npmjs.com/package/wkhtmltopdf
 [wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
+[wkhtmltopdf-downloader]: https://github.com/mauvm/wkhtmltopdf-downloader
+[yeoman-generator]: https://github.com/yeoman/yo
