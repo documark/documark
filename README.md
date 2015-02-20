@@ -64,9 +64,23 @@ plugins:
 
 __Tip:__ Use the [documark plugin loader][documark-plugin-loader] to load custom plugins!
 
-#### Writing your own plugins is easy!
+### wkhtmltopdf
 
-Here's a boilerplate for a plugin named `dmp-my-custom-plugin` (`dmp-` is short for Documark plugin):
+Configure wkhtmltopdf with the `pdf` object in the documents front matter. For example:
+
+```yaml
+---
+title: Document
+pdf:
+  userStyleSheet: path/to/main.css
+---
+```
+
+Note that [node-wkhtmltopdf][node-wkhtmltopdf] is used as an intermediate package, which uses camel cased (`userStyleSheet`) options instead of dashed ones (`user-style-sheet`, like in the command line tool). See [this page][wkhtmltopdf-options] for a full list of configuration options.
+
+## Plugin development
+
+Writing your own plugins is easy! Here's a boilerplate for a plugin named `dmp-my-custom-plugin` (`dmp-` is short for Documark plugin):
 
 ```js
 // Require modules outside the plugin function
@@ -87,19 +101,9 @@ module.exports = function dmpMyCustomPlugin ($, document, done) {
 
 Don't forget to load the plugin!
 
-### wkhtmltopdf
+### Available plugins
 
-Configure wkhtmltopdf with the `pdf` object in the documents front matter. For example:
-
-```yaml
----
-title: Document
-pdf:
-  userStyleSheet: path/to/main.css
----
-```
-
-Note that [node-wkhtmltopdf][node-wkhtmltopdf] is used as an intermediate package, which uses camel cased (`userStyleSheet`) options instead of dashed ones (`user-style-sheet`, like in the command line tool). See [this page][wkhtmltopdf-options] for a full list of configuration options.
+Plugins all have the `documark-plugin` keyword. They are [listed on the NPM website][documark-plugins].
 
 ## Roadmap
 
@@ -114,6 +118,7 @@ Note that [node-wkhtmltopdf][node-wkhtmltopdf] is used as an intermediate packag
 [cheeriojs]: https://github.com/cheeriojs/cheerio
 [front-matter]: https://github.com/jxson/front-matter#example
 [documark-plugin-loader]: https://www.npmjs.com/package/documark-plugin-loader
+[documark-plugins]: https://www.npmjs.com/browse/keyword/documark-plugin
 [node-wkhtmltopdf]: https://www.npmjs.com/package/wkhtmltopdf
 [wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
 [wkhtmltopdf-downloader]: https://github.com/mauvm/wkhtmltopdf-downloader
