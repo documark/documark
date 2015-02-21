@@ -10,12 +10,13 @@ program
 	.option('-v, --verbose', 'increase verbosity', function(v, total) { return total + 1; }, 0)
 	.option('-w, --watch', 'automatically recompile on file change')
 	.option('-t, --throttle [milliseconds]', 'throttle recompile watcher', 1000)
+	.option('-f, --file [file]', 'specify path to document file', './document.jade')
 	.parse(process.argv)
 	;
 
 var path     = require('path');
 var documark = require(path.join(__dirname, '..'));
-var document = new documark.Document(process.cwd());
+var document = new documark.Document(path.resolve(program.file));
 var chalk    = require('chalk');
 
 document.verbosity(program.verbose);
