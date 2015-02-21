@@ -102,7 +102,7 @@ module.exports = function dmpMyCustomPlugin ($, document, done) {
 A plugin has the following parameters:
 
 - `$`: the [CheerioJS][cheeriojs] DOM tree (works a lot like jQuery) of the entire document.
-- `document`: the [Documark][documark-lib] instance. Use `document.config()` to get/set configuration variables.
+- `document`: the [Document][lib-document] instance. Use `document.config()` to get/set configuration variables.
 - `done`: the callback function. Don't forget to call this at the end!
 
 Ooh and don't forget to load the plugin!
@@ -125,7 +125,7 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 [front-matter]: https://github.com/jxson/front-matter#example
 [documark-plugin-loader]: https://www.npmjs.com/package/documark-plugin-loader
 [cheeriojs]: https://github.com/cheeriojs/cheerio
-[documark-lib]: https://github.com/mauvm/documark/blob/master/lib/Documark.js
+[lib-document]: https://github.com/mauvm/documark/blob/master/lib/Document.js
 [documark-plugins]: https://www.npmjs.com/browse/keyword/documark-plugin
 [node-wkhtmltopdf]: https://www.npmjs.com/package/wkhtmltopdf
 [wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
