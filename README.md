@@ -4,21 +4,21 @@
 
 A library that:
 
-1. Compiles scripted document files (Jade, Markdown, and assets) into a PDF;
-2. Is used as a command line interface ([`npm install -g documark-cli`][documark-cli]);
+1. Compiles scripted document files (Jade, Markdown, and assets) into a PDF.
+2. Is used as a command line interface ([`npm install -g documark-cli`][documark-cli]).
 3. Can watch for files changes to recompile the document (`documark compile --watch`).
 
 ## Why?
 
 My personally hatret towards WYSIWYG word processors sparked me to write this tool. LaTeX felt like a waste of time, so instead I figured: why not use Markdown? I like Documark because it:
 
-1. Separates content and styling;
-2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing/styling the document;
-3. Enforces a consistent document style (no dragging around table columns and floating images);
-4. Allows version control with Git or SVN;
-5. Simplifies collaboration (by splitting up the document in separate files);
-6. Allows you to use your favorite text editor - like Vim ❤ ;
-7. Makes automating things (through plugins) real easy!
+1. Separates content and styling.
+2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing/styling the document.
+3. Enforces a consistent document style (no dragging around table columns and floating images).
+4. Allows version control with Git or SVN.
+5. Simplifies collaboration (by splitting up the document in separate files).
+6. Allows you to use your favorite text editor - like Vim ❤ .
+7. Makes automating things (through plugins) real easy.
 
 ## Example
 
@@ -44,7 +44,7 @@ These are the steps for compiling the PDF document:
 
 Document configuration can be done in two ways:
 
-1. In the document's [front matter][front-matter];
+1. In the document's [front matter][front-matter].
 2. In a separate `config.json` file.
 
 If there is front matter in the document, the configuration file will be ignored.
@@ -113,11 +113,12 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 
 ## Roadmap
 
-- [x] Move [documark CLI][documark-cli] commands to this repository
-- [ ] Use [wkhtmltopdf downloader][wkhtmltopdf-downloader] so manual installation is no longer required
-- [ ] Create [Yeoman generator][yeoman-generator] for easy document setup: `yo documark-theme-default`
+- [x] Move [documark CLI][documark-cli] commands to this repository.
+- [ ] Use [wkhtmltopdf downloader][wkhtmltopdf-downloader] so manual installation is no longer required.
+- [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark-theme-default` and `yo documark-plugin`.
 - [ ] Write wiki pages (any help is welcome)!
-- [ ] Build tools for debugging ([documark-debug][documark-debug], logger etc.)
+- [ ] Set up IRC channel.
+- [ ] Build tools for debugging ([documark-debug][documark-debug], logger etc).
 
 [documark-cli]: https://github.com/mauvm/documark-cli
 [documark-example]: https://github.com/mauvm/documark-example
