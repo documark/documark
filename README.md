@@ -1,5 +1,8 @@
 # Documark
 
+[![npm version](https://badge.fury.io/js/documark.svg)](http://badge.fury.io/js/documark)
+[![dependency status](https://david-dm.org/mauvm/documark.svg)](https://david-dm.org/mauvm)
+
 > PDF generator for scripted documents.
 
 A library that:
