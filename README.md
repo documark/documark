@@ -101,7 +101,7 @@ module.exports = function dmpMyCustomPlugin ($, document, done) {
 	$('my-custom-element').replaceWith('<p>Hello world!</p>');
 
 	// Or alter the configuration
-	document.options().pdf.marginLeft = '5cm';
+	document.config().pdf.marginLeft = '5cm';
 
 	// Don't forget to let Documark know the plugin is done!
 	done();
