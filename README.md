@@ -67,6 +67,12 @@ plugins:
 
 __Tip:__ Use the [documark plugin loader][documark-plugin-loader] to load custom plugins!
 
+### Themes
+
+Themes are loaded as plugins and should be prefixed with `dmp-theme-`.
+
+__Note:__ Currently the default theme (`documark-theme-default`) is not consistent with this, which I will fix soon (see [Roadmap](#user-content-roadmap)).
+
 ### wkhtmltopdf
 
 Configure wkhtmltopdf with the `pdf` object in the documents front matter. For example:
@@ -117,6 +123,7 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 ## Roadmap
 
 - [x] Move [documark CLI][documark-cli] commands to this repository.
+- [ ] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively.
 - [ ] Use [wkhtmltopdf downloader][wkhtmltopdf-downloader] so manual installation is no longer required.
 - [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark-theme-default` and `yo documark-plugin`.
 - [ ] Write wiki pages (any help is welcome)!
