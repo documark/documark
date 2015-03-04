@@ -124,9 +124,9 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 
 - [x] Move [documark CLI][documark-cli] commands to this repository.
 - [x] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively.
-- [ ] Use [wkhtmltopdf downloader][wkhtmltopdf-downloader] so manual installation is no longer required.
+- [ ] Use [wkhtmltopdf binary][wkhtmltopdf-binary] package to automatically download the required wkhtmltopdf tools.
 - [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark-theme-default` and `yo documark-plugin`.
-- [ ] Write wiki pages (any help is welcome)!
+- [ ] Write wiki pages.
 - [ ] Set up IRC channel.
 - [ ] Build tools for debugging ([dmp-debug][dmp-debug], logger etc).
 
@@ -141,6 +141,6 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 [documark-plugins]: https://www.npmjs.com/browse/keyword/documark-plugin
 [node-wkhtmltopdf]: https://www.npmjs.com/package/wkhtmltopdf
 [wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
-[wkhtmltopdf-downloader]: https://github.com/mauvm/wkhtmltopdf-downloader
+[wkhtmltopdf-binary]: https://www.npmjs.com/package/wkhtmltopdf-binary
 [yeoman-generator]: https://github.com/yeoman/yo
 [dmp-debug]: https://www.npmjs.com/package/dmp-debug
