@@ -60,18 +60,18 @@ Add plugins via the `plugins` key in the `document.jade` front matter:
 ---
 title: Document
 plugins:
-  - documark-plugin-loader
-  - documark-hr-to-page-break
+  - dmp-plugin-loader
+  - dmp-hr-to-page-break
 ---
 ```
 
-__Tip:__ Use the [documark plugin loader][documark-plugin-loader] to load custom plugins!
+__Tip:__ Use the [documark plugin loader][dmp-plugin-loader] to load custom plugins!
 
 ### Themes
 
 Themes are loaded as plugins and should be prefixed with `dmp-theme-`.
 
-__Note:__ Currently the default theme (`documark-theme-default`) is not consistent with this, which I will fix soon (see [Roadmap](#user-content-roadmap)).
+__Note:__ Currently the default theme (`dmp-theme-default`) is not consistent with this, which I will fix soon (see [Roadmap](#user-content-roadmap)).
 
 ### wkhtmltopdf
 
@@ -123,19 +123,19 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 ## Roadmap
 
 - [x] Move [documark CLI][documark-cli] commands to this repository.
-- [ ] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively.
+- [x] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively.
 - [ ] Use [wkhtmltopdf downloader][wkhtmltopdf-downloader] so manual installation is no longer required.
 - [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark-theme-default` and `yo documark-plugin`.
 - [ ] Write wiki pages (any help is welcome)!
 - [ ] Set up IRC channel.
-- [ ] Build tools for debugging ([documark-debug][documark-debug], logger etc).
+- [ ] Build tools for debugging ([dmp-debug][dmp-debug], logger etc).
 
 [documark-cli]: https://github.com/mauvm/documark-cli
 [documark-example]: https://github.com/mauvm/documark-example
 [wkhtmltopdf-install]: http://wkhtmltopdf.org/downloads.html
 [cheeriojs]: https://github.com/cheeriojs/cheerio
 [front-matter]: https://github.com/jxson/front-matter#example
-[documark-plugin-loader]: https://www.npmjs.com/package/documark-plugin-loader
+[dmp-plugin-loader]: https://www.npmjs.com/package/dmp-plugin-loader
 [cheeriojs]: https://github.com/cheeriojs/cheerio
 [lib-document]: https://github.com/mauvm/documark/blob/master/lib/Document.js
 [documark-plugins]: https://www.npmjs.com/browse/keyword/documark-plugin
@@ -143,4 +143,4 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 [wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
 [wkhtmltopdf-downloader]: https://github.com/mauvm/wkhtmltopdf-downloader
 [yeoman-generator]: https://github.com/yeoman/yo
-[documark-debug]: https://github.com/mauvm/documark-debug/
+[dmp-debug]: https://www.npmjs.com/package/dmp-debug
