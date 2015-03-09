@@ -114,7 +114,17 @@ A plugin has the following parameters:
 - `document`: the [Document][lib-document] instance. Use `document.config()` to get/set configuration variables.
 - `done`: the callback function. Don't forget to call this at the end!
 
-Ooh and don't forget to load the plugin!
+Finally load your plugin in your document configuration:
+
+```jade
+---
+plugins:
+  - dmp-my-custom-plugin
+---
+
+chapter
+	my-custom-element
+```
 
 ### Available plugins
 
@@ -125,10 +135,9 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 - [x] Move [documark CLI][documark-cli] commands to this repository.
 - [x] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively.
 - [ ] Use [wkhtmltopdf binary][wkhtmltopdf-binary] package to automatically download the required wkhtmltopdf tools.
-- [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark-theme-default` and `yo documark-plugin`.
-- [ ] Write wiki pages.
-- [ ] Set up IRC channel.
 - [ ] Build tools for debugging ([dmp-debug][dmp-debug], logger etc).
+- [ ] Improve support: set up website, write wiki pages, and set up IRC channel.
+- [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark-theme-default` and `yo documark-plugin`.
 
 [documark-cli]: https://github.com/mauvm/documark-cli
 [documark-example]: https://github.com/mauvm/documark-example
