@@ -1,19 +1,19 @@
 # Documark
 
 [![npm version](https://badge.fury.io/js/documark.svg)](http://badge.fury.io/js/documark)
-[![dependency status](https://david-dm.org/mauvm/documark.svg)](https://david-dm.org/mauvm)
+[![dependency status](https://david-dm.org/documark/documark.svg)](https://david-dm.org/documark)
 
 > PDF generator for scripted documents.
 
 A library that:
 
-1. Compiles scripted document files (Jade, Markdown, and assets) into a PDF.
+1. Compiles scripted document files ([Jade][jade], [Markdown][markdown], and assets) into a PDF.
 2. Is used as a command line interface ([`npm install -g documark-cli`][documark-cli]).
 3. Can watch for files changes to recompile the document (`documark compile --watch`).
 
 ## Why?
 
-My personally hatret towards WYSIWYG word processors sparked me to write this tool. LaTeX felt like a waste of time, so instead I figured: why not use Markdown? I like Documark because it:
+My personally hatret towards WYSIWYG word processors (Word, Pages, etc.) sparked me to write this tool. [LaTeX][latex] felt like a waste of time, so instead I figured: why not use Markdown? I like Documark because it:
 
 1. Separates content and styling.
 2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing/styling the document.
@@ -134,11 +134,15 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 
 - [x] Move [documark CLI][documark-cli] commands to this repository.
 - [x] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively.
+- [ ] Research alternatives to wkhtmltopdf (documark/documark#12).
 - [ ] Use [wkhtmltopdf binary][wkhtmltopdf-binary] package to automatically download the required wkhtmltopdf tools.
 - [ ] Build tools for debugging ([dmp-debug][dmp-debug], logger etc).
 - [ ] Improve support: set up website, write wiki pages, and set up IRC channel.
-- [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark-theme-default` and `yo documark-plugin`.
+- [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark` and `yo documark-plugin`.
 
+[jade]: http://jade-lang.com/
+[markdown]: http://daringfireball.net/projects/markdown/syntax
+[latex]: http://www.latex-project.org/
 [documark-cli]: https://github.com/mauvm/documark-cli
 [documark-example]: https://github.com/mauvm/documark-example
 [wkhtmltopdf-install]: http://wkhtmltopdf.org/downloads.html
