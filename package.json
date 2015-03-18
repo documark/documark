@@ -27,7 +27,7 @@
     "eventemitter2": "~0.4.13",
     "front-matter": "~0.2.0",
     "jade": "~1.9.1",
-    "marked": "~0.3.3",
+    "markdown-it": "^4.0.1",
     "monocle": "~1.1.51",
     "q": "~1.1.2",
     "resolve": "~1.1.5",
