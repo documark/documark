@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mauvm/documark.git"
+    "url": "https://github.com/documark/documark.git"
   },
   "keywords": [
     "PDF",
@@ -17,9 +17,9 @@
   "author": "Documark Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mauvm/documark/issues"
+    "url": "https://github.com/documark/documark/issues"
   },
-  "homepage": "https://github.com/mauvm/documark",
+  "homepage": "https://github.com/documark/documark",
   "dependencies": {
     "chalk": "~0.5.1",
     "cheerio": "~0.17.0",
