@@ -132,13 +132,16 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 
 ## Roadmap
 
-- [x] Move [documark CLI][documark-cli] commands to this repository.
-- [x] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively.
-- [ ] Research alternatives to wkhtmltopdf (documark/documark#12).
-- [ ] Use [wkhtmltopdf binary][wkhtmltopdf-binary] package to automatically download the required wkhtmltopdf tools.
-- [ ] Build tools for debugging ([dmp-debug][dmp-debug], logger etc).
-- [ ] Improve support: set up website, write wiki pages, and set up IRC channel.
-- [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark` and `yo documark-plugin`.
+1. [x] Move [documark CLI][documark-cli] commands to this repository.
+1. [x] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively.
+1. [ ] Research alternatives to wkhtmltopdf ([#12][issue-12]).
+1. [ ] Use [wkhtmltopdf binary][wkhtmltopdf-binary] package to automatically download the required wkhtmltopdf tools.
+1. [ ] Build tools for debugging ([dmp-debug][dmp-debug], logger etc).
+1. [ ] Improve support: set up website, write wiki pages, and set up IRC channel.
+1. [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark` and `yo documark-plugin`.
+1. [ ] Including code files/snippets with highlighting.
+1. [ ] Create scientific - [LaTex like][latex-theme] - theme.
+1. [ ] Landscape pages ([not possible yet][wkhtmltopdf-page-options-issue] ◔̯◔).
 
 [jade]: http://jade-lang.com/
 [markdown]: http://daringfireball.net/projects/markdown/syntax
@@ -153,6 +156,9 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 [documark-plugins]: https://www.npmjs.com/browse/keyword/documark-plugin
 [node-wkhtmltopdf]: https://www.npmjs.com/package/wkhtmltopdf
 [wkhtmltopdf-options]: http://wkhtmltopdf.org/usage/wkhtmltopdf.txt
+[issue-12]: https://github.com/documark/documark/issues/12
 [wkhtmltopdf-binary]: https://www.npmjs.com/package/wkhtmltopdf-binary
 [yeoman-generator]: https://www.npmjs.com/package/yo
 [dmp-debug]: https://www.npmjs.com/package/dmp-debug
+[latex-theme]: https://www.sharelatex.com/templates/thesis/norwegian-university-of-science-and-technology
+[wkhtmltopdf-page-options-issue]: https://github.com/wkhtmltopdf/wkhtmltopdf/issues/2233
