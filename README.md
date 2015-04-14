@@ -13,19 +13,20 @@ A library that:
 
 ## Why?
 
-My personally hatret towards WYSIWYG word processors (Word, Pages, etc.) sparked me to write this tool. [LaTeX][latex] felt like a waste of time, so instead I figured: why not use Markdown? I like Documark because it:
+My personally hatret towards WYSIWYG word processors (Word, Pages, etc.) sparked me to write this tool. I have used [LaTeX][latex] for a while, but it felt like a waste of time. So instead I figured: why not use Markdown? I like Documark because it:
 
 1. Separates content and styling.
-2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing/styling the document.
-3. Enforces a consistent document style (no dragging around table columns and floating images).
+2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing and styling the document.
+3. Enforces a consistent document style. No more dragging around of table columns and floating images.
 4. Allows version control with Git or SVN.
-5. Simplifies collaboration (by splitting up the document in separate files).
+5. Simplifies collaboration by version control and splitting up the document into separate files.
 6. Allows you to use your favorite text editor - like Vim ❤ .
 7. Makes automating things (through plugins) real easy.
+8. Enables you to use libraries like [D3][d3] and [MathJax][mathjax] for generating graphs and math formulas!
 
 ## Example
 
-Go to the [Documark example][documark-example] repository for a generated PDF and its source code.
+Go to the [Documark example][documark-example] repository for a [generated PDF][documark-example-pdf] and its source code.
 
 ## Dependencies
 
@@ -148,6 +149,9 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 [latex]: http://www.latex-project.org/
 [documark-cli]: https://www.npmjs.com/package/documark-cli
 [documark-example]: https://github.com/documark/documark-example
+[documark-example-pdf]: https://github.com/documark/documark-example/blob/master/Example.pdf
+[d3]: https://github.com/mbostock/d3/wiki/Gallery
+[mathjax]: https://www.mathjax.org/
 [wkhtmltopdf-install]: http://wkhtmltopdf.org/downloads.html
 [cheeriojs]: https://www.npmjs.com/package/cheerio
 [front-matter]: https://github.com/jxson/front-matter#example
