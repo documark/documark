@@ -51,7 +51,11 @@ function compile (changedFile) {
 
 	console.log(chalk.underline('Compiling..'));
 
-	document.compile().then(done, error);
+	try {
+		document.compile().then(done, error);
+	} catch (err) {
+		error(err);
+	}
 }
 
 compile();
