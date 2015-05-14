@@ -7,5 +7,6 @@ module.exports = {
 		
 		return spawn(execPath, args, { stdio: 'inherit' });
 	},
-	Document: require('./lib/document.js')
+	Document: require('./lib/document.js'),
+	Compiler: require('./lib/compiler.js'),
 };

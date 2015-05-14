@@ -15,15 +15,13 @@ program
 var path     = require('path');
 var documark = require(path.join(__dirname, '..'));
 var document = new documark.Document(path.resolve(program.file));
+var compiler = new documark.Compiler();
 
 document.verbosity(program.verbose);
 
-var defaultFn = document.triggerPreCompileEvent;
+compiler.compileToPDF = function ($) {
+	process.stdout.write(JSON.stringify(document.config(), null, 4));
+	process.exit(0);
+};
 
-document.triggerPreCompileEvent = function () {
-	defaultFn().then(function () {
-		process.stdout.write(JSON.stringify(document.config(), null, 4));
-		process.exit(0);
-	});
-}
-document.compile();
+compiler.compile(document);

@@ -17,6 +17,7 @@ program
 var path     = require('path');
 var documark = require(path.join(__dirname, '..'));
 var document = new documark.Document(path.resolve(program.file));
+var compiler = new documark.Compiler();
 var chalk    = require('chalk');
 
 document.verbosity(program.verbose);
@@ -44,15 +45,15 @@ function compile (changedFile) {
 	if (changedFile) {
 		console.log(
 			'\n' + chalk.green('>>') + ' File "' +
-			path.relative(document.path(), changedFile.fullPath)
-			+ '" changed.\n'
+			path.relative(document.path(), changedFile.fullPath) +
+			'" changed.\n'
 		);
 	}
 
 	console.log(chalk.underline('Compiling..'));
 
 	try {
-		document.compile().then(done, error);
+		compiler.compile(document).then(done, error);
 	} catch (err) {
 		error(err);
 	}
