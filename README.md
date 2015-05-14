@@ -66,6 +66,20 @@ plugins:
 ---
 ```
 
+Alternatively use JSON front matter:
+
+```json
+---json
+{
+	"title": "Document",
+	"plugins": [
+		"dmp-plugin-loader",
+		"dmp-hr-to-page-break"
+	]
+}
+---
+```
+
 __Tip:__ Use the [documark plugin loader][dmp-plugin-loader] to load custom plugins!
 
 ### Themes
@@ -154,7 +168,7 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 [mathjax]: https://www.mathjax.org/
 [wkhtmltopdf-install]: http://wkhtmltopdf.org/downloads.html
 [cheeriojs]: https://www.npmjs.com/package/cheerio
-[front-matter]: https://github.com/jxson/front-matter#example
+[front-matter]: https://github.com/jonschlinkert/gray-matter
 [dmp-plugin-loader]: https://www.npmjs.com/package/dmp-plugin-loader
 [lib-document]: https://github.com/documark/documark/blob/master/lib/document.js
 [documark-plugins]: https://www.npmjs.com/browse/keyword/documark-plugin
