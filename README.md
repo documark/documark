@@ -7,44 +7,71 @@
 
 A library that:
 
-1. Compiles scripted document files ([Jade][jade], [Markdown][markdown], and assets) into a PDF.
-2. Is used as a command line interface ([`npm install -g documark-cli`][documark-cli]).
-3. Can watch for files changes to recompile the document (`documark compile --watch`).
+1. Converts a scripted document (Jade/Markdown/HTML, CSS, and JavaScript) to a PDF (using [wkhtmltopdf][wkhtmltopdf])
+2. Is used as a command line interface:
+
+	```bash
+	$ npm install -g documark-cli
+	$ cd /path/to/my-document/
+	$ npm install documark
+	$ edit document.jade
+	$ documark compile
+	```
+
+3. Can watch for files changes to recompile the document (`documark compile --watch`)
 
 ## Why?
 
 My personally hatret towards WYSIWYG word processors (Word, Pages, etc.) sparked me to write this tool. I have used [LaTeX][latex] for a while, but it felt like a waste of time. So instead I figured: why not use Markdown? I like Documark because it:
 
-1. Separates content and styling.
-2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing and styling the document.
-3. Enforces a consistent document style. No more dragging around of table columns and floating images.
-4. Allows version control with Git or SVN.
-5. Simplifies collaboration by version control and splitting up the document into separate files.
-6. Allows you to use your favorite text editor - like Vim ❤ .
-7. Makes automating things (through plugins) real easy.
+1. Separates content and styling
+2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing and styling the document
+3. Enforces a consistent document style. No more dragging around of table columns and floating images
+4. Allows version control with Git or SVN
+5. Simplifies collaboration by version control and splitting up the document into separate files
+6. Allows you to use your favorite text editor - like Vim ❤
+7. Makes automating things (through plugins) real easy
 8. Enables you to use libraries like [D3][d3] and [MathJax][mathjax] for generating graphs and math formulas!
 
-## Example
+## Getting started
+
+### Install
+
+1. Run `npm install -g documark-cli` to make the `documark` command available
+2. Currently manually installing [wkhtmltopdf v0.12.2.1+][wkhtmltopdf-install] is still required, [but we're working on this!][roadmap]
+
+### Example
 
 Go to the [Documark example][documark-example] repository for a [generated PDF][documark-example-pdf] and its source code.
 
-## Dependencies
+### From scratch
 
-1. Currently manually installing [wkhtmltopodf v0.12.2.1+][wkhtmltopdf-install] is still required.
+1. Install the Documark CLI and wkhtmltopdf
+2. Navigate to (an empty) document directory: `$ mkdir ~/Documents/MyDocument && cd $_`
+3. Install Documark: `$ npm install documark`
+4. Install some basic styling: `$ npm i dmp-style-basic`
+5. Add a `document.jade` file:
 
-## Build process
+	```jade
+	---
+	title: My Document
+	plugins:
+		- dmp-style-basic
+	---
 
-These are the steps for compiling the PDF document:
+	chapter
+		h1= title
+		p Hello world!
+		:markdown
+			Want some _Markdown_? No **problemo**!
+	```
 
-1. Input files (Jade, Markdown, and assets)
-2. Generate HTML
-3. Convert to DOM tree (with [CheerioJS][cheeriojs])
-3. Process plugins (which can alter the DOM and PDF configuration)
-4. Emit `pre-compile` event
-5. Generate PDF
-6. Emit `post-compile` event
+6. Run `$ documark compile`
+7. And finally open `Document.pdf`
 
-## Configuration
+## Usage
+
+### Configuration
 
 Document configuration can be done in two ways:
 
@@ -61,8 +88,8 @@ Add plugins via the `plugins` key in the `document.jade` front matter:
 ---
 title: Document
 plugins:
-  - dmp-plugin-loader
-  - dmp-hr-to-page-break
+	- dmp-plugin-loader
+	- dmp-hr-to-page-break
 ---
 ```
 
@@ -84,9 +111,25 @@ __Tip:__ Use the [documark plugin loader][dmp-plugin-loader] to load custom plug
 
 ### Themes
 
-Themes are loaded as plugins and should be prefixed with `dmp-theme-`.
+Themes are loaded as plugins and should be prefixed with `dmp-theme-`. A theme generally consists of some styling and other useful plugins, like [table of contents][dmp-table-of-contents], [page headers, footers, margins][dmp-page-meta], or [math equations][dmp-math].
 
-__Note:__ Currently the default theme (`dmp-theme-default`) is not consistent with this, which I will fix soon (see [Roadmap](#user-content-roadmap)).
+### Styling
+
+The easiest way is to load a predefined document style as a plugin. These plugins are prefixed with `dmp-style-`.
+
+Another way of styling your document is through CSS files, inline CSS, or the element's `style` attribute.
+
+### Build process
+
+These are the steps for compiling the PDF document:
+
+1. Input files (Jade, Markdown, and assets)
+2. Generate HTML
+3. Convert to DOM tree (with [CheerioJS][cheeriojs])
+4. Process plugins (which can alter the DOM and PDF configuration)
+5. Emit `pre-compile` event
+6. Generate PDF
+7. Emit `post-compile` event
 
 ### wkhtmltopdf
 
@@ -96,7 +139,7 @@ Configure wkhtmltopdf with the `pdf` object in the documents front matter. For e
 ---
 title: Document
 pdf:
-  userStyleSheet: path/to/main.css
+	userStyleSheet: path/to/main.css
 ---
 ```
 
@@ -134,7 +177,7 @@ Finally load your plugin in your document configuration:
 ```jade
 ---
 plugins:
-  - dmp-my-custom-plugin
+	- dmp-my-custom-plugin
 ---
 
 chapter
@@ -147,17 +190,19 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 
 ## Roadmap
 
-1. [x] Move [documark CLI][documark-cli] commands to this repository.
-1. [x] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively.
-1. [ ] Research alternatives to wkhtmltopdf ([#12][issue-12]).
-1. [ ] Use [wkhtmltopdf binary][wkhtmltopdf-binary] package to automatically download the required wkhtmltopdf tools.
-1. [ ] Build tools for debugging ([dmp-debug][dmp-debug], logger etc).
-1. [ ] Improve support: set up website, write wiki pages, and set up IRC channel.
-1. [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark` and `yo documark-plugin`.
-1. [ ] Including code files/snippets with highlighting.
-1. [ ] Create scientific - [LaTex like][latex-theme] - theme.
-1. [ ] Landscape pages ([not possible yet][wkhtmltopdf-page-options-issue] ◔̯◔).
+1. [x] Move [documark CLI][documark-cli] commands to this repository
+1. [x] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively
+1. [ ] Research alternatives to wkhtmltopdf ([#12][issue-12])
+1. [ ] Use [wkhtmltopdf binary][wkhtmltopdf-binary] package to automatically download the required wkhtmltopdf tools
+1. [ ] Build tools for debugging ([dmp-debug][dmp-debug], logger etc)
+1. [ ] Improve support: set up website, write wiki pages, and set up IRC channel
+1. [ ] Create [Yeoman generator][yeoman-generator] for easy document/plugin setup: `yo documark` and `yo documark-plugin`
+1. [ ] Including code files/snippets with highlighting
+1. [ ] Create scientific - [LaTex like][latex-theme] - theme
+1. [ ] Landscape pages ([not possible yet][wkhtmltopdf-page-options-issue] ◔̯◔)
 
+[wkhtmltopdf]: http://wkhtmltopdf.org/
+[roadmap]: #user-content-roadmap
 [jade]: http://jade-lang.com/
 [markdown]: http://daringfireball.net/projects/markdown/syntax
 [latex]: http://www.latex-project.org/
@@ -167,6 +212,9 @@ Plugins all have the `documark-plugin` keyword. They are [listed on the NPM webs
 [d3]: https://github.com/mbostock/d3/wiki/Gallery
 [mathjax]: https://www.mathjax.org/
 [wkhtmltopdf-install]: http://wkhtmltopdf.org/downloads.html
+[dmp-table-of-contents]: https://www.npmjs.com/package/dmp-table-of-contents
+[dmp-page-meta]: https://www.npmjs.com/package/dmp-page-meta
+[dmp-math]: https://www.npmjs.com/package/dmp-math
 [cheeriojs]: https://www.npmjs.com/package/cheerio
 [front-matter]: https://github.com/jonschlinkert/gray-matter
 [dmp-plugin-loader]: https://www.npmjs.com/package/dmp-plugin-loader
