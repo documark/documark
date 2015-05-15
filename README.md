@@ -107,6 +107,8 @@ Alternatively use JSON front matter:
 ---
 ```
 
+Plugins all have the `documark-plugin` keyword. They are [listed on the NPM website][documark-plugins].
+
 __Tip:__ Use the [documark plugin loader][dmp-plugin-loader] to load custom plugins!
 
 ### Themes
@@ -145,7 +147,7 @@ pdf:
 
 Note that [node-wkhtmltopdf][node-wkhtmltopdf] is used as an intermediate package, which uses camel cased (`userStyleSheet`) options instead of dashed ones (`user-style-sheet`, like in the command line tool). See [this page][wkhtmltopdf-options] for a full list of configuration options.
 
-## Plugin development
+### Plugin development
 
 Writing your own plugins is easy! Here's a boilerplate for a plugin named `dmp-my-custom-plugin` (`dmp-` is short for Documark plugin):
 
@@ -183,10 +185,6 @@ plugins:
 chapter
 	my-custom-element
 ```
-
-### Available plugins
-
-Plugins all have the `documark-plugin` keyword. They are [listed on the NPM website][documark-plugins].
 
 ## Roadmap
 
