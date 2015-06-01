@@ -38,7 +38,7 @@ My personally hatret towards WYSIWYG word processors (Word, Pages, etc.) sparked
 ### Install
 
 1. Run `npm install -g documark-cli` to make the `documark` command available
-2. Currently manually installing [wkhtmltopdf v0.12.2.1+][wkhtmltopdf-install] is still required, [but we're working on this!][roadmap]
+2. Currently manually installing [wkhtmltopdf v0.12.2.1+][wkhtmltopdf-install] is still required, [but we're working on this!][wkhtmltox-binary]
 
 ### Example
 
@@ -205,6 +205,7 @@ chapter
 [markdown]: http://daringfireball.net/projects/markdown/syntax
 [latex]: http://www.latex-project.org/
 [documark-cli]: https://www.npmjs.com/package/documark-cli
+[wkhtmltox-binary]: https://github.com/documark/wkhtmltox-binary
 [documark-example]: https://github.com/documark/documark-example
 [documark-example-pdf]: https://github.com/documark/documark-example/blob/master/Example.pdf
 [d3]: https://github.com/mbostock/d3/wiki/Gallery
