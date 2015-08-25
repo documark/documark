@@ -8,14 +8,14 @@
 
 A library that:
 
-1. Converts a scripted document (Jade/Markdown/HTML, CSS, and JavaScript) to a PDF (using [wkhtmltopdf][wkhtmltopdf])
+1. Converts a scripted document (HTML, CSS, and JavaScript) to a PDF (using [wkhtmltopdf][wkhtmltopdf])
 2. Is used as a command line interface:
 
 	```bash
 	$ npm install -g documark-cli
 	$ cd /path/to/my-document/
 	$ npm install documark
-	$ edit document.jade
+	$ edit document.html
 	$ documark compile
 	```
 
@@ -23,10 +23,10 @@ A library that:
 
 ## Why?
 
-My personally hatret towards WYSIWYG word processors (Word, Pages, etc.) sparked me to write this tool. I have used [LaTeX][latex] for a while, but it felt like a waste of time. So instead I figured: why not use Markdown? I like Documark because it:
+My personally hatret towards WYSIWYG word processors (Word, Pages, etc.) sparked me to write this tool. I have used [LaTeX][latex] for a while, but it felt like a waste of time. So instead I figured: why not use web technologies? I like Documark because it:
 
 1. Separates content and styling
-2. Uses mature webtechnologies like Markdown, HTML, JS, and CSS for writing and styling the document
+2. Uses mature webtechnologies like HTML, JS, and CSS for writing and styling the document
 3. Enforces a consistent document style. No more dragging around of table columns and floating images
 4. Allows version control with Git or SVN
 5. Simplifies collaboration by version control and splitting up the document into separate files
@@ -51,20 +51,19 @@ Go to the [Documark example][documark-example] repository for a [generated PDF][
 2. Navigate to (an empty) document directory: `$ mkdir ~/Documents/MyDocument && cd $_`
 3. Install Documark: `$ npm install documark`
 4. Install some basic styling: `$ npm i dmp-style-basic`
-5. Add a `document.jade` file:
+5. Add a `document.html` file:
 
-	```jade
-	---
+	```html
+	<!--
 	title: My Document
 	plugins:
 		- dmp-style-basic
-	---
+	-->
 
-	chapter
-		h1= title
-		p Hello world!
-		:markdown
-			Want some _Markdown_? No **problemo**!
+	<chapter>
+		<h1>My Document</h1>
+		<p>Hello world!</p>
+	</chapter>
 	```
 
 6. Run `$ documark compile`
@@ -83,29 +82,15 @@ If there is front matter in the document, the configuration file will be ignored
 
 ### Plugins
 
-Add plugins via the `plugins` key in the `document.jade` front matter:
+Add plugins via the `plugins` key in the `document.html` front matter:
 
-```yaml
----
-title: Document
-plugins:
-	- dmp-plugin-loader
-	- dmp-hr-to-page-break
----
-```
-
-Alternatively use JSON front matter:
-
-```json
----json
+```html
+<!--
 {
 	"title": "Document",
-	"plugins": [
-		"dmp-plugin-loader",
-		"dmp-hr-to-page-break"
-	]
+	"plugins": ["dmp-plugin-loader", "dmp-hr-to-page-break"]
 }
----
+-->
 ```
 
 Plugins all have the `documark-plugin` keyword. They are [listed on the NPM website][documark-plugins].
@@ -126,24 +111,26 @@ Another way of styling your document is through CSS files, inline CSS, or the el
 
 These are the steps for compiling the PDF document:
 
-1. Input files (Jade, Markdown, and assets)
-2. Generate HTML
-3. Convert to DOM tree (with [CheerioJS][cheeriojs])
-4. Process plugins (which can alter the DOM and PDF configuration)
-5. Emit `pre-compile` event
-6. Generate PDF
-7. Emit `post-compile` event
+1. Input files (HTML, configuration, and assets)
+2. Convert to DOM tree (with [CheerioJS][cheeriojs])
+3. Process plugins (which can alter the DOM and PDF configuration)
+4. Emit `pre-compile` event
+5. Generate PDF
+6. Emit `post-compile` event
 
 ### wkhtmltopdf
 
 Configure wkhtmltopdf with the `pdf` object in the documents front matter. For example:
 
-```yaml
----
-title: Document
-pdf:
-	userStyleSheet: path/to/main.css
----
+```html
+<!--
+{
+	"title": "Document",
+	"pdf": {
+		"userStyleSheet": "path/to/main.css"
+	}
+}
+-->
 ```
 
 Note that [node-wkhtmltopdf][node-wkhtmltopdf] is used as an intermediate package, which uses camel cased (`userStyleSheet`) options instead of dashed ones (`user-style-sheet`, like in the command line tool). See [this page][wkhtmltopdf-options] for a full list of configuration options.
@@ -177,20 +164,23 @@ A plugin has the following parameters:
 
 Finally load your plugin in your document configuration:
 
-```jade
----
-plugins:
-	- dmp-my-custom-plugin
----
+```html
+<!--
+{
+	"plugins": ["dmp-my-custom-plugin"]
+}
+-->
 
-chapter
-	my-custom-element
+<chapter>
+	<my-custom-element />
+</chapter>
 ```
 
 ## Roadmap
 
-1. [x] Move [documark CLI][documark-cli] commands to this repository
-1. [x] Rename `documark-` prefixed plugins and themes to `dmp-` and `dmp-theme-` respectively
+1. [ ] Move CLI commands to `documark-cli`
+1. [ ] Refactor codebase
+1. [ ] Add unit tests (for Travis)
 1. [ ] Research alternatives to wkhtmltopdf ([#12][issue-12])
 1. [ ] Use [wkhtmltopdf binary][wkhtmltopdf-binary] package to automatically download the required wkhtmltopdf tools
 1. [ ] Build tools for debugging ([dmp-debug][dmp-debug], logger etc)
@@ -202,8 +192,6 @@ chapter
 
 [wkhtmltopdf]: http://wkhtmltopdf.org/
 [roadmap]: #user-content-roadmap
-[jade]: http://jade-lang.com/
-[markdown]: http://daringfireball.net/projects/markdown/syntax
 [latex]: http://www.latex-project.org/
 [documark-cli]: https://www.npmjs.com/package/documark-cli
 [wkhtmltox-binary]: https://github.com/documark/wkhtmltox-binary
