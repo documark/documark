@@ -8,7 +8,7 @@ var program = require('commander');
 
 program
 	.option('-v, --verbose', 'increase verbosity', function(v, total) { return total + 1; }, 0)
-	.option('-f, --file [file]', 'specify path to document file', './document.jade')
+	.option('-f, --file [file]', 'specify path to document file', './document.html')
 	.parse(process.argv)
 	;
 

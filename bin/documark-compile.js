@@ -10,7 +10,7 @@ program
 	.option('-v, --verbose', 'increase verbosity', function(v, total) { return total + 1; }, 0)
 	.option('-w, --watch', 'automatically recompile on file change')
 	.option('-t, --throttle [milliseconds]', 'throttle recompile watcher', 1000)
-	.option('-f, --file [file]', 'specify path to document file', './document.jade')
+	.option('-f, --file [file]', 'specify path to document file', './document.html')
 	.parse(process.argv)
 	;
 
@@ -67,7 +67,7 @@ if (program.watch) {
 
 	monocle.watchDirectory({
 		root: document.path(),
-		fileFilter: ['**/*.{jade,md,markdown,mdown,js,css,png,jpg,jpeg,gif,bmp}'],
+		fileFilter: ['**/*.{html,js,css,png,jpg,jpeg,gif,bmp}'],
 		listener: throttle(compile, program.throttle)
 	});
 }
