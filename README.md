@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/documark.svg)](http://badge.fury.io/js/documark)
 [![dependency status](https://david-dm.org/documark/documark.svg)](https://david-dm.org/documark)
+[![build status](https://travis-ci.org/documark/documark.svg?branch=master)](https://travis-ci.org/documark/documark)
 
 > PDF generator for scripted documents.
 
